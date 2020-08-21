@@ -83,3 +83,25 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+.idea
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.navigation
+output.json
+
+#NDK
+obj/
