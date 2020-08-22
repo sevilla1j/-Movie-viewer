@@ -6,7 +6,6 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Log
 
-
 /**
  * Created by Jose Sevilla on 20/08/2020.
  * jose1.sevilla23@gmail.com

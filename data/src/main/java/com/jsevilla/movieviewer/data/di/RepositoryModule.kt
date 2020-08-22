@@ -1,5 +1,7 @@
 package com.jsevilla.movieviewer.data.di
 
+import com.jsevilla.movieviewer.data.repository.MovieRepositoryImpl
+import com.jsevilla.movieviewer.domain.repository.MovieRepository
 import org.koin.dsl.module
 
 /**
@@ -11,5 +13,5 @@ import org.koin.dsl.module
  **/
 
 val repositoryModule = module {
-    factory { }
+    factory<MovieRepository> { MovieRepositoryImpl(get(), get()) }
 }

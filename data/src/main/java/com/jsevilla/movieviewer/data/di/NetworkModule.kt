@@ -1,11 +1,13 @@
 package com.jsevilla.movieviewer.data.di
 
 import com.jsevilla.movieviewer.data.BuildConfig
-import com.jsevilla.movieviewer.data.network.end_points.EndPointsService
-import com.jsevilla.movieviewer.data.network.end_points.SupportInterceptor
 import com.jsevilla.movieviewer.data.core.ConnectionUtils
 import com.jsevilla.movieviewer.data.core.ConnectionUtilsImpl
 import com.jsevilla.movieviewer.data.core.Constants
+import com.jsevilla.movieviewer.data.network.end_points.EndPoints
+import com.jsevilla.movieviewer.data.network.end_points.EndPointsImpl
+import com.jsevilla.movieviewer.data.network.end_points.EndPointsService
+import com.jsevilla.movieviewer.data.network.end_points.SupportInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -32,6 +34,7 @@ val networkModule = module {
     single { provideOkHttpClient(get()) }
     single { provideApi(get()) }
     single { provideRetrofit(get()) }
+    single<EndPoints> { EndPointsImpl(get(), get()) }
 }
 
 fun provideOkHttpClient(authInterceptor: SupportInterceptor): OkHttpClient {

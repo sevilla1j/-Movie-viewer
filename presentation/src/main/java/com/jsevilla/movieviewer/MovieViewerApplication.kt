@@ -3,8 +3,9 @@ package com.jsevilla.movieviewer
 import android.app.Application
 import com.jsevilla.movieviewer.data.di.mapperDataModule
 import com.jsevilla.movieviewer.data.di.networkModule
-import com.jsevilla.movieviewer.data.di.preferencesModule
 import com.jsevilla.movieviewer.data.di.repositoryModule
+import com.jsevilla.movieviewer.di.mapperPresentationModule
+import com.jsevilla.movieviewer.di.viewModelModule
 import com.jsevilla.movieviewer.domain.di.useCasesModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -25,10 +26,11 @@ class MovieViewerApplication : Application() {
             modules(
                 arrayListOf(
                     networkModule,
-                    preferencesModule,
                     mapperDataModule,
                     repositoryModule,
-                    useCasesModule
+                    useCasesModule,
+                    mapperPresentationModule,
+                    viewModelModule
                 )
             )
         }

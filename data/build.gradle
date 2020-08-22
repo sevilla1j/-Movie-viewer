@@ -28,6 +28,7 @@ android {
 
             buildConfigField("String", "BaseURL", "\"${env['baseUrl']}\"")
             buildConfigField("String", "TokenTMDb", "\"${env['apiKeyTMBb']}\"")
+            buildConfigField("String", "BaseUrlImage", "\"${env['baseUrlImage']}\"")
         }
 
         develop {
@@ -36,6 +37,7 @@ android {
 
             buildConfigField("String", "BaseURL", "\"${env['baseUrlDevelop']}\"")
             buildConfigField("String", "TokenTMDb", "\"${env['apiKeyTMBb']}\"")
+            buildConfigField("String", "BaseUrlImage", "\"${env['baseUrlImage']}\"")
         }
         qa {
             minifyEnabled false
@@ -43,6 +45,7 @@ android {
 
             buildConfigField("String", "BaseURL", "\"${env['baseUrlQA']}\"")
             buildConfigField("String", "TokenTMDb", "\"${env['apiKeyTMBb']}\"")
+            buildConfigField("String", "BaseUrlImage", "\"${env['baseUrlImage']}\"")
         }
     }
 

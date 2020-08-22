@@ -95,6 +95,7 @@ dependencies {
     implementation project(":data")
 
     implementation presentationDependencies.values()
+    kapt rootProject.ext.presentationDependenciesKapt.glideCompiler
     testImplementation presentationTestDependencies.values()
     androidTestImplementation presentationTestImplementationDependencies.androidXRunner
     androidTestImplementation presentationTestImplementationDependencies.androidXEspresso
