@@ -4,15 +4,13 @@ _Proyecto de Visualización de peliculas usando la API de [TMDb](https://www.the
 
 ## Comenzando 🚀
 
-_Este proyecto contiene lo siguiente:
+Este proyecto contiene lo siguiente:
 
   - [Kotlin Coroutines]
   - [MVVM]
   - [Clean Architecture]
   - Modularization per layer (Basic).
   - Unit Test
-_
-
 
 ### Pre-requisitos 📋
 
