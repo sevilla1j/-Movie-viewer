@@ -1,5 +1,6 @@
 package com.jsevilla.movieviewer.data.network.end_points
 
+import com.jsevilla.movieviewer.data.network.response.MovieBodyResponse
 import com.jsevilla.movieviewer.data.network.response.MovieResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -21,6 +22,9 @@ interface EndPointsService {
         @Query("page") page: Int
     ): Response<MovieResponse>
 
-    @GET("todos")
-    suspend fun getMovie(@Path("id") movieId: Int): Response<MovieResponse>
+    @GET("movie/{id}?&language=es-ES")
+    suspend fun getMovie(
+        @Path("id") movieId: Int,
+        @Query("api_key") api: String
+    ): Response<MovieBodyResponse>
 }

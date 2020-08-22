@@ -1,13 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.jsevilla.movieviewer.feature.ui.fragment.detail.MovieDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="movieDetailViewModel"
+            type="com.jsevilla.movieviewer.feature.ui.fragment.detail.MovieDetailViewModel" />
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        app:onRefreshListener="@{() -> movieDetailViewModel.refreshData()}"
+        app:refreshing="@{safeUnbox(movieDetailViewModel.isRefreshing)}">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraint_header"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:elevation="@dimen/dp8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp24"
+                            android:text="@string/app_name"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/sp18"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/constraint_header">
+
+                        <ProgressBar
+                            android:id="@+id/progress_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp8"
+                            android:indeterminate="true"
+                            android:visibility="@{safeUnbox(movieDetailViewModel.isRefreshing) ? View.GONE : (safeUnbox(movieDetailViewModel.isLoading) ? View.VISIBLE : View.GONE)}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/constraintLayout2" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imageViewPoster"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp350"
+                            android:scaleType="fitXY"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/constraintLayout2"
+                            app:setImageUri="@{movieDetailViewModel.movieModelFromNetwork.poster_path}" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtTitle"
+                            android:layout_width="@dimen/dp0"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginTop="@dimen/dp8"
+                            android:layout_marginEnd="@dimen/dp8"
+                            android:maxLines="2"
+                            android:singleLine="true"
+                            android:text="@{movieDetailViewModel.movieModelFromNetwork.original_title}"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="@dimen/sp22"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/imageViewPoster"
+                            tools:text="Depredador 2" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:text="@{movieDetailViewModel.movieModelFromNetwork.release_date}"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="@dimen/sp16"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/txtVote"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/txtVote"
+                            tools:text="23/08/2020" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imageViewFavorite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp4"
+                            app:layout_constraintBottom_toBottomOf="@+id/txtVote"
+                            app:layout_constraintEnd_toStartOf="@+id/txtVote"
+                            app:layout_constraintTop_toTopOf="@+id/txtVote"
+                            app:srcCompat="@drawable/ic_favorite" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtVote"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp16"
+                            android:layout_marginEnd="@dimen/dp8"
+                            android:text="@{movieDetailViewModel.movieModelFromNetwork.vote_count.toString()}"
+                            android:textColor="@color/colorYellow"
+                            android:textSize="@dimen/sp16"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                            tools:text="320" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginTop="@dimen/dp16"
+                            android:layout_marginEnd="@dimen/dp8"
+                            android:text="@{movieDetailViewModel.movieModelFromNetwork.overview}"
+                            android:textColor="@color/colorBlackAndWhile"
+                            android:textSize="@dimen/sp16"
+                            android:textStyle="normal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtVote"
+                            tools:text="@tools:sample/lorem/random" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp8"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/sp18"
+                            android:visibility="@{safeUnbox(movieDetailViewModel.isLoading) ? View.GONE : (safeUnbox(movieDetailViewModel.showEmptyView) ? View.GONE : (safeUnbox(movieDetailViewModel.showErrorCause) ? View.VISIBLE : View.GONE))}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/progress_bar"
+                            app:setCustomErrorMessage="@{movieDetailViewModel.errorCause}"
+                            tools:text="Error label"
+                            tools:visibility="gone" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

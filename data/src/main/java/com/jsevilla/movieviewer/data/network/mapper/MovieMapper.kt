@@ -1,5 +1,6 @@
 package com.jsevilla.movieviewer.data.network.mapper
 
+import com.jsevilla.movieviewer.data.network.response.MovieBodyResponse
 import com.jsevilla.movieviewer.data.network.response.MovieResponse
 import com.jsevilla.movieviewer.domain.entity.MovieEntity
 
@@ -14,5 +15,5 @@ import com.jsevilla.movieviewer.domain.entity.MovieEntity
 interface MovieMapper {
     suspend fun movieListDataToDomain(movies: MovieResponse): List<MovieEntity>
 
-    suspend fun movieDataToDomain(todo: MovieResponse): MovieEntity
+    suspend fun movieDataToDomain(movie: MovieBodyResponse): MovieEntity
 }
