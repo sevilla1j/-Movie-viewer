@@ -1,5 +1,6 @@
 package com.jsevilla.movieviewer.di
 
+import com.jsevilla.movieviewer.feature.ui.fragment.detail.MovieDetailViewModel
 import com.jsevilla.movieviewer.feature.ui.fragment.list.MovieListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -14,4 +15,5 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { MovieListViewModel(get(), get()) }
+    viewModel { MovieDetailViewModel(get(), get()) }
 }

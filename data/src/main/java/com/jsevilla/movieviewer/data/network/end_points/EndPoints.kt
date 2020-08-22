@@ -1,5 +1,6 @@
 package com.jsevilla.movieviewer.data.network.end_points
 
+import com.jsevilla.movieviewer.data.network.response.MovieBodyResponse
 import com.jsevilla.movieviewer.data.network.response.MovieResponse
 import com.jsevilla.movieviewer.domain.entity.Either
 import com.jsevilla.movieviewer.domain.entity.Failure
@@ -13,7 +14,7 @@ import com.jsevilla.movieviewer.domain.entity.Failure
  **/
 
 interface EndPoints {
-    suspend fun getMovie(movieId: Int): Either<Failure, MovieResponse>
-
     suspend fun getMovies(): Either<Failure, MovieResponse>
+
+    suspend fun getMovie(movieId: Int): Either<Failure, MovieBodyResponse>
 }

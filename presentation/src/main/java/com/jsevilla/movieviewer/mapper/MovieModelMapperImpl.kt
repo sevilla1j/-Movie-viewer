@@ -12,12 +12,6 @@ import com.jsevilla.movieviewer.model.MovieModel
  **/
 
 class MovieModelMapperImpl : MovieModelMapper {
-    override suspend fun movieDomainToPresentation(movie: MovieEntity): MovieModel {
-        return MovieModel(
-            id = movie.id!!
-        )
-    }
-
     override suspend fun movieListDomainToPresentation(movie: List<MovieEntity>): List<MovieModel> {
         return movie.map { movieEntity ->
             MovieModel(
@@ -28,5 +22,16 @@ class MovieModelMapperImpl : MovieModelMapper {
                 vote_count = movieEntity.vote_count
             )
         }
+    }
+
+    override suspend fun movieDomainToPresentation(movie: MovieEntity): MovieModel {
+        return MovieModel(
+            id = movie.id,
+            original_title = movie.original_title,
+            poster_path = movie.poster_path,
+            release_date = movie.release_date,
+            vote_count = movie.vote_count,
+            overview = movie.overview
+        )
     }
 }

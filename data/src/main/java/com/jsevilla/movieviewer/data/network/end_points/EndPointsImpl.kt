@@ -3,6 +3,7 @@ package com.jsevilla.movieviewer.data.network.end_points
 import com.jsevilla.movieviewer.data.BuildConfig
 import com.jsevilla.movieviewer.data.core.ConnectionUtils
 import com.jsevilla.movieviewer.data.core.Constants
+import com.jsevilla.movieviewer.data.network.response.MovieBodyResponse
 import com.jsevilla.movieviewer.data.network.response.MovieResponse
 import com.jsevilla.movieviewer.domain.entity.Either
 import com.jsevilla.movieviewer.domain.entity.Failure
@@ -30,8 +31,8 @@ class EndPointsImpl(
     override suspend fun getMovies(): Either<Failure, MovieResponse> =
         callService { endPoints.getMovies(BuildConfig.TokenTMDb, 1) }
 
-    override suspend fun getMovie(movieId: Int): Either<Failure, MovieResponse> =
-        callService { endPoints.getMovie(movieId) }
+    override suspend fun getMovie(movieId: Int): Either<Failure, MovieBodyResponse> =
+        callService { endPoints.getMovie(movieId, BuildConfig.TokenTMDb) }
 
     private suspend inline fun <T> callService(crossinline retrofitCall: suspend () -> Response<T>): Either<Failure, T> {
         return when (networkUtils.isNetworkAvailable()) {
