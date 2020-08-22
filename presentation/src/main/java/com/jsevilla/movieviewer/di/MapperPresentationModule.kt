@@ -1,5 +1,7 @@
 package com.jsevilla.movieviewer.di
 
+import com.jsevilla.movieviewer.mapper.MovieModelMapper
+import com.jsevilla.movieviewer.mapper.MovieModelMapperImpl
 import org.koin.dsl.module
 
 /**
@@ -11,5 +13,5 @@ import org.koin.dsl.module
  **/
 
 val mapperPresentationModule = module {
-    factory { }
+    single<MovieModelMapper> { MovieModelMapperImpl() }
 }

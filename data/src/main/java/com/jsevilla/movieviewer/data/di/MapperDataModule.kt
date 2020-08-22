@@ -1,5 +1,7 @@
 package com.jsevilla.movieviewer.data.di
 
+import com.jsevilla.movieviewer.data.network.mapper.MovieMapper
+import com.jsevilla.movieviewer.data.network.mapper.MovieMapperImpl
 import org.koin.dsl.module
 
 /**
@@ -11,5 +13,5 @@ import org.koin.dsl.module
  **/
 
 val mapperDataModule = module {
-    factory { }
+    factory<MovieMapper> { MovieMapperImpl() }
 }

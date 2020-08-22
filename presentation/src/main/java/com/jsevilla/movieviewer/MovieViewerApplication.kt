@@ -3,7 +3,6 @@ package com.jsevilla.movieviewer
 import android.app.Application
 import com.jsevilla.movieviewer.data.di.mapperDataModule
 import com.jsevilla.movieviewer.data.di.networkModule
-import com.jsevilla.movieviewer.data.di.preferencesModule
 import com.jsevilla.movieviewer.data.di.repositoryModule
 import com.jsevilla.movieviewer.di.mapperPresentationModule
 import com.jsevilla.movieviewer.di.viewModelModule
@@ -27,7 +26,6 @@ class MovieViewerApplication : Application() {
             modules(
                 arrayListOf(
                     networkModule,
-                    preferencesModule,
                     mapperDataModule,
                     repositoryModule,
                     useCasesModule,

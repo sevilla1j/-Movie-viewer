@@ -1,5 +1,6 @@
 package com.jsevilla.movieviewer.domain.di
 
+import com.jsevilla.movieviewer.domain.usecase.GetMovieListUseCase
 import org.koin.dsl.module
 
 /**
@@ -11,5 +12,5 @@ import org.koin.dsl.module
  **/
 
 val useCasesModule = module {
-    factory { }
+    factory { GetMovieListUseCase(get()) }
 }

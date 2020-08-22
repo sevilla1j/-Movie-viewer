@@ -23,4 +23,14 @@ object Constants {
         const val SECURE_PREFS_FILE_KEY = "com.jsevilla.movieviewer.secure_preferences"
         const val PREF_KEY_ACCESS_TOKEN = "key_user_access_token"
     }
+
+    object EndPoints {
+        const val KEY_CODE = "code"
+        const val KEY_MESSAGE = "message"
+    }
+
+    object CodeError {
+        const val ERROR401 = 401
+        const val ERROR403 = 403
+    }
 }

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.jsevilla.movieviewer.feature.ui.fragment.list.MovieListViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefreshListener="@{() -> viewModel.refreshData()}"
+        app:refreshing="@{safeUnbox(viewModel.isRefreshing)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/dp8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp24"
+                    android:text="@string/app_name"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/sp18"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp8"
+                android:indeterminate="true"
+                android:visibility="@{safeUnbox(viewModel.isRefreshing) ? View.GONE : (safeUnbox(viewModel.isLoading) ? View.VISIBLE : View.GONE)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraint_header" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/dp24"
+                android:text="@string/label_empty_movie_list"
+                android:textSize="@dimen/sp18"
+                android:visibility="@{safeUnbox(viewModel.isLoading) ? View.GONE : (safeUnbox(viewModel.showErrorCause) ? View.GONE : (safeUnbox(viewModel.showEmptyView) ? View.VISIBLE : View.GONE))}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar"
+                tools:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp8"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp18"
+                android:visibility="@{safeUnbox(viewModel.isLoading) ? View.GONE : (safeUnbox(viewModel.showEmptyView) ? View.GONE : (safeUnbox(viewModel.showErrorCause) ? View.VISIBLE : View.GONE))}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progress_bar"
+                app:setCustomErrorMessage="@{viewModel.errorCause}"
+                tools:text="Error label"
+                tools:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_todo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp0"
+                android:visibility="@{safeUnbox(viewModel.isLoading) ? View.GONE : (safeUnbox(viewModel.showEmptyView) ? View.GONE : View.VISIBLE)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraint_header"
+                app:movieAdapter="@{viewModel.adapter}"
+                tools:itemCount="2"
+                tools:listitem="@layout/item_movie" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
