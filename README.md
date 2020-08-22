@@ -9,16 +9,11 @@ Este proyecto contiene lo siguiente:
   - [Kotlin Coroutines]
   - [MVVM]
   - [Clean Architecture]
-  - Modularization per layer (Basic).
   - Unit Test
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
-
-```
-Da un ejemplo
-```
+ - Sistema operativo: Android 5.0 (Lollipop) o superior.
 
 ### Instalación 🔧
 
