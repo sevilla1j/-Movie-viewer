@@ -13,7 +13,9 @@ Este proyecto contiene lo siguiente:
 
 ### Pre-requisitos 📋
 
- - Sistema operativo: Android 5.0 (Lollipop) o superior.
+ - [Android Studio](https://developer.android.com/studio).
+ - Android SDK.
+ - Emulador de Android o Dispositivo fisico
 
 ### Instalación 🔧
 
@@ -39,9 +41,9 @@ _Explica como ejecutar las pruebas automatizadas para este sistema_
 
 ## Despliegue 📦
 
-_¿Quieres contribuir? ¡Excelente!
+¿Quieres contribuir? ¡Excelente!
 
-encontrar y corregir errores, hacer un PR._
+encontrar y corregir errores, hacer un PR.
 
 ## Licencia 📄
 
