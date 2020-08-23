@@ -1,6 +1,6 @@
 # Movie-viewer
 
-_Proyecto de Visualización de peliculas usando la API de [TMDb](https://www.themoviedb.org/)_
+_Proyecto de Visualización de Películas usando la API de [TMDb](https://www.themoviedb.org/)_
 
 ## Comenzando 🚀
 
@@ -16,7 +16,7 @@ Este proyecto contiene lo siguiente:
  - [Android Studio](https://developer.android.com/studio).
  - Android SDK.
  - [Git](https://git-scm.com/).
- - Emulador de Android o Dispositivo fisico,
+ - Emulador de Android o Dispositivo fisico.
 
 ### Instalación 🔧
 
@@ -26,7 +26,7 @@ Clona el proyecto
 ----
 
 ```
-Con el siguiente Link [https://github.com/sevilla1j/Movie-viewer.git].
+Con el siguiente Link https://github.com/sevilla1j/Movie-viewer.git.
 
 Clona el proyecto y ubicalo dentro de una carpeta donde se te ralice comodo trabajar.
 ```
@@ -54,7 +54,7 @@ Inicia un emulador o conecta un dispositivo fisico
 ----
 
 ```
-Sigues las siguientes instrucciones. [Link](https://developer.android.com/studio/run/emulator)
+Sigues las siguientes instrucciones. https://developer.android.com/studio/run/emulator
 ```
 
 
