@@ -22,8 +22,7 @@ Este proyecto contiene lo siguiente:
 
 Para ejecutar este Software tendras que realizar los siguientes pasos:
 
-Clona el proyecto
-----
+- Clona el proyecto
 
 ```
 Con el siguiente Link https://github.com/sevilla1j/Movie-viewer.git.
@@ -31,8 +30,7 @@ Con el siguiente Link https://github.com/sevilla1j/Movie-viewer.git.
 Clona el proyecto y ubicalo dentro de una carpeta donde se te ralice comodo trabajar.
 ```
 
-Ejecuta Android Studio
-----
+ - Ejecuta Android Studio
 
 ```
 Inicia Android Studio y preciona "open an exisring Android Studio Proyect".
@@ -40,8 +38,7 @@ Inicia Android Studio y preciona "open an exisring Android Studio Proyect".
 Busca el proyecto en la carpeta donde lo guardaste al clonarlo y preciona OK
 ```
 
-Cambiar Build Variants
-----
+ - Cambiar Build Variants
 
 ```
 Una vez finalizada la carga del proyecto, en la parte izquierda del IDE podras encontrar los
@@ -50,8 +47,7 @@ Build Variants, podras elegir la opcion que desees para ejecutar el proyecto.
 Ten en cuenta que cada variante va a crear un apk diferente. (DEVELOP, QA o RELEASE)
 ```
 
-Inicia un emulador o conecta un dispositivo fisico
-----
+ - Inicia un emulador o conecta un dispositivo fisico
 
 ```
 Sigues las siguientes instrucciones. https://developer.android.com/studio/run/emulator
@@ -69,7 +65,7 @@ encontrar y corregir errores, hacer un PR.
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (MIT License)
-----
+
 ```
 Copyright (c) 2020 Jose A. Sevilla
 
