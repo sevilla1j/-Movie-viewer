@@ -15,25 +15,44 @@ Este proyecto contiene lo siguiente:
 
  - [Android Studio](https://developer.android.com/studio).
  - Android SDK.
- - Emulador de Android o Dispositivo fisico
+ - [Git](https://git-scm.com/).
+ - Emulador de Android o Dispositivo fisico,
 
 ### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
+Para ejecutar este Software tendras que realziar los siguientes pasos:
 
-_Dí cómo será ese paso_
-
-```
-Da un ejemplo
-```
-
-_Y repite_
+Clona el proyecto
+----
 
 ```
-hasta finalizar
+Con el siguiente Link [https://github.com/sevilla1j/Movie-viewer.git], clonar el proyecto y ubicalo dentro de una carpeta donde se te ralice comodo trabajar.
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
+Ejecuta Android Studio
+----
+
+```
+Inicia Android Studio y preciona "open an exisring Android Studio Proyect", Busca el proyecto en la carpeta donde lo guardaste al clonar y preciona OK
+```
+
+Cambiar Build Variants
+----
+
+```
+Una vez finalizada la carga del proyecto, en la parte izquierda del IDE podras encontrar los Build Variants, podras elegir la opcion que desees para ejecutar el proyecto.
+
+Ten en cuenta que cada variante va a crear un apk diferente. (DEVELOP, QA o RELEASE)
+```
+
+Inicia un emulador o conecta un dispositivo fisico
+----
+
+```
+Sigues las siguientes instrucciones. [Link](https://developer.android.com/studio/run/emulator)
+```
+
+Al finalizar solo darle clic a run y listo.
 
 ## Ejecutando las pruebas ⚙️
 
