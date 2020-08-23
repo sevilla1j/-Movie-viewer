@@ -60,10 +60,6 @@ Sigues las siguientes instrucciones. [Link](https://developer.android.com/studio
 
 Al finalizar solo darle clic a run y listo.
 
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
 ## Despliegue 📦
 
 ¿Quieres contribuir? ¡Excelente!
