@@ -50,7 +50,7 @@ Ten en cuenta que cada variante va a crear un apk diferente. (DEVELOP, QA o RELE
  - Inicia un emulador o conecta un dispositivo físico
 
 ```
-Sigues las siguientes instrucciones. https://developer.android.com/studio/run/emulator
+Sigue las siguientes instrucciones. https://developer.android.com/studio/run/emulator
 ```
 
 
