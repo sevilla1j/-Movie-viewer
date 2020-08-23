@@ -27,7 +27,7 @@ Para ejecutar este Software tendrás que realizar los siguientes pasos:
 ```
 Con el siguiente Link https://github.com/sevilla1j/Movie-viewer.git.
 
-Clona el proyecto y ubícalo dentro de una carpeta donde se te realice cómodo trabajarlo.
+Clona el proyecto y ubícalo dentro de una carpeta donde se te haga cómodo trabajarlo.
 ```
 
  - Ejecuta Android Studio
